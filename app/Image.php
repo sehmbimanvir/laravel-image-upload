@@ -1,21 +1,19 @@
 <?php
 namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+
 class Image extends Model
 {
     protected $fillable = [
-        'title', 'path', 'auth_by', 'size', 'thumbnail'
+        'title', 'path', 'auth_by', 'size'
     ];
-    public $appends = ['url', 'uploaded_time', 'size_in_kb', 'thumbnail_url'];
+    public $appends = ['url', 'uploaded_time', 'size_in_kb'];
     public function getUrlAttribute()
     {
         return Storage::disk('s3')->url($this->path);
-    }
-    public function getThumbnailUrlAttribute()
-    {
-        return Storage::disk('s3')->url($this->thumbnail);
     }
     public function getUploadedTimeAttribute()
     {

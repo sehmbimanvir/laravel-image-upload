@@ -16,7 +16,7 @@
                         </tr>
                         @foreach ($images as $image)
                             <tr>
-                            <th><img width="100px" src="{{$image->thumbnail_url}}"></th>
+                            <th><img width="100px" src="{{$image->url}}"></th>
                             <td>{{$image->title}}</td>
                             <td>{{$image->size_in_kb}} KB</td>
                             <td>{{$image->uploaded_time}}</td>

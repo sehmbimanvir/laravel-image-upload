@@ -24,10 +24,9 @@ class ImageController extends Controller
         $path = Storage::disk('s3')->put('images/originals', $request->file);
         $request->merge([
             'size' => $request->file->getClientSize(),
-            'path' => $path,
-            'thumbnail' => str_replace('images/originals', 'images/thumbnails', $path)
+            'path' => $path
         ]);
-        $this->image->create($request->only('path', 'title', 'size', 'thumbnail'));
+        $this->image->create($request->only('path', 'title', 'size'));
         return back()->with('success', 'Image Successfully Saved');
     }
 }
