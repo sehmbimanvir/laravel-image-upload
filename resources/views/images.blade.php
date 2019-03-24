@@ -9,13 +9,15 @@
                 <div class="card-body">
                     <table class="table table-bordered">
                         <tr>
-                            <th>Image</th>
+                            <th>Original Image</th>
+                            <th>Thumbnail</th>
                             <th>Caption</th>
                             <th>Size</th>
                             <th>Uploaded</th>
                         </tr>
                         @foreach ($images as $image)
                             <tr>
+                            <th><img width="100px" src="{{$image->url}}"></th>
                             <th><img width="100px" src="{{$image->thumbnail_url}}"></th>
                             <td>{{$image->title}}</td>
                             <td>{{$image->size_in_kb}} KB</td>
